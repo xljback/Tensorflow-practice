@@ -25,6 +25,7 @@ ys = tf.placeholder(tf.float32, [None, 1])
 hidden_layer = add_layer(xs, 1, 10, activation = tf.nn.relu)
 prediction = add_layer(hidden_layer, 10, 1, activation = None)
 
+#loss function
 loss = tf.reduce_mean(tf.reduce_sum(tf.square(ys - prediction), reduction_indices = [1]))
 train = tf.train.GradientDescentOptimizer(0.1).minimize(loss)
 
